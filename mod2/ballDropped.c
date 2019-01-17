@@ -21,6 +21,7 @@
 #include <math.h>
 // Constants
 const double GRAVITY = 9.8;  // m/s^2
+const double BUILDING = 500; //meters
 // Function Prototypes
 
 // Main Function
@@ -28,10 +29,13 @@ int main()
 {
     double t = 0;
     double distance = 0;
+    double distFromGrnd = 0;
     printf("Enter time travelled in seconds: ");
     scanf("%lf", &t);
     distance = 0.5 * GRAVITY * pow(t, 2);
+    distFromGrnd = BUILDING - distance;
     printf("The ball has travelled a distance of %lf meters.\n", distance); 
+    printf("The ball is %lf meters from the ground.\n", distFromGrnd);
     // Formula: s = 0.5 g t^2
     // Take user input: time travelled
     // Display distance
