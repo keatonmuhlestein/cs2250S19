@@ -27,17 +27,13 @@ const double PI = 3.1415941;
 // Main Function
 int main()
 {
-    double height = 0;
+    long double height = 0;
     double time = 0;
-    double part1 = 0;
-    double part2 = 0;
     printf("Enter the period (time) in seconds: ");
-    scanf("lf", &time);
-    part1 = GRAVITY * MASS * pow(time, 2);
-    part2 = 4 * pow(PI, 2);
-    height = pow(part1 * part2, 1/3) - RADIUS;
-    printf("Your satellite after %lf seconds is %lf meters from the earth\n",
-            time, height);
+    scanf("%lf", &time);
+    height = cbrt((GRAVITY * MASS * pow(time , 2))/(4*pow(PI,2))) - RADIUS;
+    printf("Your satellite after %lf seconds is %Lf km from the earth\n",
+            time, height/1000);
     // Height = [(G M T^2)/(4Pi^2)]^1/3 - R
 
     return 0;
