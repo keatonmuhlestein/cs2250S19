@@ -30,7 +30,7 @@ int main()
     printf("Please enter your choice:\n");
     printf("\t0 for Celsius or 1 for Fahrenheit: ");
     scanf("%d", &choice);
-    if (choice == 0)
+    if (choice == CELSIUS)
     {
         printf("Welcome to the Celsius to Fahrenheit calculator\n");
         printf("Enter the temperature in Celsius: ");
@@ -38,7 +38,7 @@ int main()
         out_temp = (in_temp * 9.0/5.0) + 32;
         printf("Your temperature in Fahrenheit is: %lf\n", out_temp);
     }
-    else if (choice == 1)
+    else if (choice == FAHRENHEIT)
     {
         printf("Welcome to the Fahrenheit to Celsius calculator\n");
         printf("Enter the temperature in Fahrenheit: ");
