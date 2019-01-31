@@ -36,52 +36,63 @@
 int main()
 {
     int month, day;
+    char answer;
+    while(1)
+    {
+        printf("Please enter the month (1 to 12): ");
+        scanf("%d", &month);
+        printf("Please enter the day of the month: ");
+        scanf("%d", &day);
+        if (month > 12 || month < 0)
+        {
+            printf("Invalid month\n");
+            return 1;
+        }
+        switch(month)
+        {
+            case JANUARY:
+            case MARCH:
+            case MAY:
+            case JULY:
+            case AUGUST:
+            case OCTOBER:
+            case DECEMBER:
+                if(day > 31 || day < 1)
+                {
+                    printf("Invalid day\n");
+                    return 1;
+                }
+                break;
 
-    printf("Please enter the month (1 to 12): ");
-    scanf("%d", &month);
-    printf("Please enter the day of the month: ");
-    scanf("%d", &day);
-    if (month > 12 || month < 0)
-    {
-        printf("Invalid month\n");
-        return 1;
-    }
-    switch(month)
-    {
-        case JANUARY:
-        case MARCH:
-        case MAY:
-        case JULY:
-        case AUGUST:
-        case OCTOBER:
-        case DECEMBER:
-            if(day > 31 || day < 1)
-            {
-                printf("Invalid day\n");
-                return 1;
-            }
+            case APRIL:
+            case JUNE:
+            case SEPTEMBER:
+            case NOVEMBER:
+                if(day > 30 || day < 1)
+                {
+                    printf("Invalid day\n");
+                    return 1;
+                }
+                break;
+            case FEBRUARY:
+                if(day > 28 || day < 1)
+                {
+                    printf("Invalid day\n");
+                    return 1;
+                }
+                break;
+        }
+        printf("You have entered valid month[%d] and day[%d].\n",
+                month, day);
+        printf("\n\nDo you want to continue [y/n]: ");
+        scanf(" %c", &answer);
+        if(answer != 'y' && answer != 'Y')
+        {
+            printf("answer is [%c]\n", answer);
             break;
-        
-        case APRIL:
-        case JUNE:
-        case SEPTEMBER:
-        case NOVEMBER:
-            if(day > 30 || day < 1)
-            {
-                printf("Invalid day\n");
-                return 1;
-            }
-            break;
-        case FEBRUARY:
-            if(day > 28 || day < 1)
-            {
-                printf("Invalid day\n");
-                return 1;
-            }
-            break;
-    }
-    printf("You have entered valid month[%d] and day[%d].\n",
-            month, day);
+        }
+    } // end of while
+    printf("\nGood Bye\n");
     return 0;
 }
 // Function Definitions
