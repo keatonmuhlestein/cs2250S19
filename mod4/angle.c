@@ -55,25 +55,28 @@ int main()
     {
         printf("Your angle is in Quadrant IV.\n");
     }
-    else if (angle == 0 || angle == 360)
+    else if (angle == 0 ||  angle == 90
+            || angle == 180 || angle == 270)
     {
-        printf("Your angle is between Quadrant I and Quadrant IV.\n");
-        printf("Also your angle is on the positive X-axis.\n");
-    }
-    else if (angle == 90)
-    {
-        printf("Your angle is between Quadrant I and Quadrant II.\n");
-        printf("Also your angle is on the positive Y-axis.\n");
-    }
-    else if (angle == 180)
-    {
-        printf("Your angle is between Quadrant II and Quadrant III.\n");
-        printf("Also your angle is on the negative X-axis.\n");
-    }
-    else if (angle == 270)
-    {
-        printf("Your angle is between Quadrant III and Quadrant IV.\n");
-        printf("Also your angle is on the negative Y-axis.\n");
+        switch(angle)
+        {
+            case 0:
+                 printf("Your angle is between Quadrant I and Quadrant IV.\n");
+                 printf("Also your angle is on the positive X-axis.\n");
+                 break;
+            case 90:
+                printf("Your angle is between Quadrant I and Quadrant II.\n");
+                printf("Also your angle is on the positive Y-axis.\n");
+                break;
+            case 180:
+                 printf("Your angle is between Quadrant II and Quadrant III.\n");
+                 printf("Also your angle is on the negative X-axis.\n");
+                 break;
+            case 270:
+                printf("Your angle is between Quadrant III and Quadrant IV.\n");
+                printf("Also your angle is on the negative Y-axis.\n");
+                break;
+        }
     }
     else 
     {
