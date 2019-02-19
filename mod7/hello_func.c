@@ -22,11 +22,15 @@
 // Function Prototypes
 void Hello_World();
 void Hello_Number(int num);
+int Get_Square(int num);
 // Main Function
 int main(int argc, char* argv[])
 {
+    int i1 = 23;
     Hello_World();
-    Hello_Number(23);
+    Hello_Number(i1);
+    i1 = Get_Square(i1);
+    Hello_Number(i1);
 
     return 0;
 }
@@ -41,7 +45,7 @@ int main(int argc, char* argv[])
  */
 void Hello_World()
 {
-    printf("Hello World\n");
+    printf("Hola\n");
     return;
 }
 
@@ -56,6 +60,23 @@ void Hello_World()
  */
 void Hello_Number(int num)
 {
-    printf("Hello %d number\n", num);
+    printf("Hola %d number\n", num);
     return;
+}
+
+
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  Get_Square
+ *  Description:  Get the square of an integer
+ *       Param1:  num => integer value
+ *       Return:  the square of num
+ * =====================================================================================
+ */
+int Get_Square(int num)
+{
+    int square;
+    //Algorithm
+    square = num * num;
+    return square;
 }
