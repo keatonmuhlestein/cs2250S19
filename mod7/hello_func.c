@@ -25,6 +25,7 @@ void Hello_Number(int num);
 int Get_Square(int num);
 int Get_Number();
 int Get_Sum(int num1, int num2);
+double Get_BMI(double weight, double height);
 // Main Function
 int main(int argc, char* argv[])
 {
@@ -47,6 +48,10 @@ int main(int argc, char* argv[])
     Hello_Number(num2);
     sum = Get_Sum(num1, num2);
     Hello_Number(sum);
+
+    double bmi = Get_BMI(65.8, 1.89);
+    printf("Your BMI is [%lf]\n", bmi);
+
     return 0;
 }
 // Function Definitions
@@ -127,4 +132,23 @@ int Get_Number()
 int Get_Sum(int num1, int num2)
 {
     return num1 + num2;
+}
+
+
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  Get_BMI
+ *  Description:  Calculate the BMI
+ *                BMI = weight(kg)/height(m^2)
+ *       Param1:  Weight in kg
+ *       Param2:  Height in meters
+ *       Return:  BMI
+ * =====================================================================================
+ */
+double Get_BMI(double weight, double height)
+{
+    double bmi;
+    //Algorithm
+    bmi = weight/(height * height);
+    return bmi;
 }
