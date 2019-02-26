@@ -21,7 +21,7 @@
 
 // Function Prototypes
 void DisplayPosition(double x, double y);
-void DisplayOrigPosition(double* x, double* y);
+void DisplayOrigPosition(const double* x, const double* y);
 void UpdatePosition(double* x, double* y, double new_x, double new_y);
 void ResetPosition(double* x, double* y);
 // Main Function
@@ -58,7 +58,7 @@ int main(int argc, char* argv[])
 void DisplayPosition(double x, double y)
 {
     printf("Your current position is (%4.2lf, %4.2lf)\n", x, y);
-    printf("Your current position address is (%p, %p)\n", &x, &y);
+   // printf("Your current position address is (%p, %p)\n", &x, &y);
     return;
 }
 /* 
@@ -70,10 +70,10 @@ void DisplayPosition(double x, double y)
  *  Returns: nothing
  * =====================================================================================
  */
-void DisplayOrigPosition(double* x, double* y)
+void DisplayOrigPosition(const double* x, const double* y)
 {
     printf("Your current position is (%4.2lf, %4.2lf) (orig)\n", *x, *y);
-    printf("Your current original address is (%p, %p) (orig)\n", &x, &y);
+   // printf("Your current original address is (%p, %p) (orig)\n", &x, &y);
     return;
 }
 /* 
