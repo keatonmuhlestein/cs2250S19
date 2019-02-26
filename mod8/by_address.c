@@ -23,6 +23,7 @@
 void DisplayPosition(double x, double y);
 void DisplayOrigPosition(double* x, double* y);
 void UpdatePosition(double* x, double* y, double new_x, double new_y);
+void ResetPosition(double* x, double* y);
 // Main Function
 int main(int argc, char* argv[])
 {
@@ -35,8 +36,9 @@ int main(int argc, char* argv[])
     x = atof(argv[1]);
     y = atof(argv[2]);
     DisplayOrigPosition(&x, &y);
-   // DisplayPosition(x, y);
     UpdatePosition(&x, &y, 2.0, 4.1);
+    DisplayOrigPosition(&x, &y);
+    ResetPosition(&x, &y);
     DisplayOrigPosition(&x, &y);
 
 
@@ -78,8 +80,8 @@ void DisplayOrigPosition(double* x, double* y)
  * ===  FUNCTION  ======================================================================
  *         Name:  UpdatePosition
  *  Description:  Update current point position
- *  Param: x => x coordinate address
- *  Param: y => y coordinate address
+ *  Param: x => x coordinate address pointer
+ *  Param: y => y coordinate address pointer
  *  Param: x_new => new x coordinate
  *  Param: y_new => new y coordinate
  *  Returns: nothing
@@ -91,5 +93,21 @@ void UpdatePosition(double* x, double* y, double new_x, double new_y)
     *x = new_x;
     *y = new_y;
 
+    return;
+}
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  ResetPosition
+ *  Description:  Reset point position to origin (0,0)
+ *  Param: x => x coordinate address pointer
+ *  Param: y => y coordinate address pointer
+ *  Returns: nothing
+ * =====================================================================================
+ */
+void ResetPosition(double* x, double* y)
+{
+    printf("*****Reseting position*****\n");
+    *x = 0;
+    *y = 0;
     return;
 }
