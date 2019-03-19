@@ -18,44 +18,19 @@
  */
 #include <stdio.h>
 #include <stdlib.h>
+#include "employee.h"
 
-// Constants & Globals
-typedef struct Employee
-{
-    int idNum;
-    double payRate;
-    double hours;
-    double netPay;
-    double taxRate;
-    double grossPay;
-} Employee;
-#define TAXRATE1 0.10    // 10%
-#define TAXRATE2 0.25    // 25%
-#define TAXRATE3 0.75    // 75%
-// Function Prototypes
-double CalcNet(Employee emp); // pass by value
-double CalcGross(Employee* emp); // pass by reference
 // Main Function
 int main(int argc, char* argv[])
 {
-    Employee waldo =  {1, 7.50, 20};
-    waldo.netPay = CalcNet(waldo);
-
-    printf("Hi Waldo, your net pay for %lf hours at %lf rat is %lf\n",
-            waldo.hours, waldo.payRate, waldo.netPay);
-    // Set tax rate
-    waldo.taxRate = TAXRATE1;
-    waldo.grossPay = CalcGross(&waldo);
-    printf("Hi Waldo, your gross pay for %lf hours at %lf rat is %lf\n",
-            waldo.hours, waldo.payRate, waldo.grossPay);
-
+    
     return 0;
 }
 // Function Definitions
 /* 
  * ===  FUNCTION  ======================================================================
- *         Name:  CalcNet
- *  Description:  Calculate the net pay based on payRate and hours
+ *         Name:  CalcGross
+ *  Description:  Calculate the gross pay based on payRate and hours
  *  Param: Employee structure
  *  Return: Net Pay as a double
  * =====================================================================================
@@ -80,4 +55,52 @@ double CalcNet(Employee emp)
     // To access structure members when using a pointer (address)
     // use the dereference operator  ->
     return emp.payRate * emp.hours * (1 - emp.taxRate);
+}
+
+
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  CreateEmployee
+ *  Description:  Create Employee record
+ *  Param: Employee Structure
+ * =====================================================================================
+ */
+void CreateEmployee(Employee* emp)
+{
+    emp->idNum = 1;
+    emp->payrate = 7.50;
+    emp->hours = 20;
+    emp->taxRate = TAXRATE1;
+    return;
+}
+
+
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  CalcPay
+ *  Description:  Calculate Net and gross pay of employee
+ *  Param: Employee Structure
+ * =====================================================================================
+ */
+void CalcPay(Employee* emp)
+{
+    emp->netPay = CalcNet(*emp);
+    emp->grossPay = CalcGross(emp);
+    return;
+}
+
+
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  DisplayEmp
+ *  Description:  Display Employee information
+ *  Param: Employee Structure
+ * =====================================================================================
+ */
+void DisplayEmp(const Employee* emp)
+{
+    printf("Hi [%03d], your net pay for %lf hours at %lf rate is %lf\n",
+            emp->idNum, emp->hours, emp->payRate, emp->netPay);
+    printf("Your gross pay is %lf\n", emp->grossPay);
+    return;
 }
